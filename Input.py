@@ -1,24 +1,24 @@
-import random
-c = 0
-begin = input("Would you like your word to be random or input? ")
+begin = input("Would you like your word to be input or random? ")
+begin = begin.upper()
 
-if (begin = "Input"):
-word = input("Enter a word: ")
+if (begin == "RANDOM"):
+  #Gets the number of words in Word.txt
+  infile = open("Word.txt", "r")
+  c = 0
+  line = infile.readline()
+  while line:
+    c += 1
+    line = infile.readline()
+  infile.close() 
 
-elif (begin = "Random"):
-
-infile = open ("  .txt, "r")
-line = infile.readline()
-
-while (line):
-c = c + 1
-
-infile.close()
-
-infile = open(" .txt", "r")
-line = infile.readline()
-
-for x in range (c):
-line = infile.readline()
-
-word = line
+  #Gets a random word from Word.txt 
+  imput random
+  wordn = random.randint(1, c)
+  infile1 = open("Word.txt", "r")
+  for x in range(wordn):
+    word = infile1.readline()
+  word = word.replace("\n", "")
+  infile1.close()
+  
+elif (begin == "INPUT"):
+  word = input("Enter your word: ")
