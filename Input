@@ -9,5 +9,13 @@ infile = open ("  .txt, "r")
 line = infile.readline()
 while (line):
 c = c + 1
+infile.close()
+
+infile = open(" .txt", "r")
+line = infile.readline()
+for x in range (c):
+line=infile.readline()
+
+word = line
 
 
