@@ -18,5 +18,3 @@ for x in range (c):
 line=infile.readline()
 
 word = line
-
-AAAAAAAAAAAAAAAAAAAA
