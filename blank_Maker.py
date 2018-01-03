@@ -1,29 +1,23 @@
-def dashMaker(word,letter):
-  blanks = ""
-  c = 0
-  for blankMaker in range(len(word)):
-      for letterCounter in range(len(word)):
-          wordPs = input1.find(letter)
-          if wordPs == c:
-              blanks+= letter
-          else:
-              blanks += "-"
 
-      c+=1
+def dashMaker(word,letter,previous="---------------"):
+  blanks = ""
+
+  c = 0
+  for letterCounter in range(len(word)):
+      if word[letterCounter] == letter and previous[letterCounter] == "-" :
+          blanks += letter
+      elif previous[letterCounter] == "-":
+          blanks += "-"
+      else:
+          blanks += previous[letterCounter]
 
   return blanks
 
-def letterChanger(input1, letter):
-    wordPs = input1.find(letter)
-    rWordPs = input1.rfind(letter)
-    wordPsOut = str(wordPs) + str(rWordPs)
-    while (wordPs != rWordPs):
-        c = wordPs + 1
-        wordPs = input1.find(letter, c)
-    return wordPsOut
-
 
 #    ****MAIN***
-input1 = "HELOLLO"
-print(letterChanger(input1, "L"))
+
+input1 = "HELLO"
+
+prev = dashMaker(input1, "H",prev)
+print(dashMaker(input1, "L",prev))
 #print(dashMaker(input1,"L",letterChanger(input1, "L")))
