@@ -1,5 +1,5 @@
 
-def dashMaker(word,letter,previous="---------------"):
+def guessChecker(word,letter,previous="---------------"):
   blanks = ""
 
   c = 0
@@ -17,7 +17,7 @@ def dashMaker(word,letter,previous="---------------"):
 #    ****MAIN***
 
 input1 = "HELLO"
-
-prev = dashMaker(input1, "H",prev)
-print(dashMaker(input1, "L",prev))
+for c in range(10):
+    prev = dashMaker(input1, word,prev)
+    print(dashMaker(input1, word,prev))
 #print(dashMaker(input1,"L",letterChanger(input1, "L")))
