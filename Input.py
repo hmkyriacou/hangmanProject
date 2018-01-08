@@ -1,21 +1,29 @@
-# ***MAIN***
-#asks the user if they want to chose their own word or get a random one
-choice = input("Enter \"CHOICE\" if you want to pick the word or enter \"RANDOM\" if you want the program to pick it for you: ")
-choice = choice.upper()
-check = True
-
-#Gets the word from Word.txt or user
-if (choice == "CHOICE"):
-  #asks the user for a word and finds how long it is
+def wordCheck(word):
   word = input("Enter your word: ")
-  word = word.lower()
-  digits = len(word)
-  if (digits > 10 or digits < 3):
-    print("Please enter a word that has fewer than 10 letters and greater than 3.")
-    check = False
+  word = word.upper()
+  z = 1
+  
+  length = len(word)
+  while (x <= length):
+    let = word.find(x)
+    if (ord(let) < 65 or ord(let) > 90):
+      z = 0
+      
+  if (z == 0):
+    print("Please only enter letters")
+    wordCheck(word)
+  elif (length > 10 or length < 3):
+    print("Please input a word with 3 to 10 letters.")
+    wordCheck(word)
   else:
-    check = True
-elif (choice == "RANDOM"):
+    return word
+    
+begin = input("Would you like your word to be input or random? ")
+begin = begin.upper()
+word = " "
+
+
+if (begin == "RANDOM"):
   #Gets the number of words in Word.txt
   infile = open("Word.txt", "r")
   c = 0
@@ -25,7 +33,7 @@ elif (choice == "RANDOM"):
     line = infile.readline()
   infile.close() 
 
-  #Gets a random word from Word.txt and finds how long the word is
+  #Gets a random word from Word.txt 
   import random
   wordn = random.randint(1, c)
   infile1 = open("Word.txt", "r")
@@ -33,32 +41,7 @@ elif (choice == "RANDOM"):
     word = infile1.readline()
   word = word.replace("\n", "")
   infile1.close()
-  digits = len(word)
-
-#Checks if the program should run with the given word (applies to user input only)
-if (check == False):
-  print("")
-elif (check == True):
-  #prints the first picture and how many spaces are in the word
-  wordspaces = ""
-  print("_______________\nl             l\nl\nl\nl\nl\nl\nl______________\n")
-  for x in range(digits):
-    wordspaces = wordspaces + "_ "
-  print("\t" + wordspaces + "\n")
-  print("The word is " + str(digits) + " characters long.")
-
-'''
-  #Asks the user if they want to use a letter or solve the puzzel and runs the program
-  choice2 = input("Would you like to guess a letter \"LETTER\" or solve the puzzel \"PUZZEL\"?")
-  choice2 = choice2.upper
-  if (choice2 == "LETTER"):
-  elif (choice2 == "PUZZEL"):
-    #asks the user for their guess and sees if it is correct (if not automatic loss)
-    wordguess = input("Enter your guess: ")
-    if (wordguess == word):
-      print("Congrats! You saved hang man!")
-    else:
-      print("So close! Sorry you lose.")
-      
-
-'''
+  word = word.upper()
+   
+elif (begin == "INPUT"):
+  wordCheck(word)
