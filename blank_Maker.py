@@ -17,7 +17,7 @@ def guessChecker(word,letter,previous="---------------"):
 #    ****MAIN***
 
 input1 = "HELLO"
-for c in range(10):
+endGame = False
+while endGame ==False:
     prev = dashMaker(input1, word,prev)
     print(dashMaker(input1, word,prev))
-#print(dashMaker(input1,"L",letterChanger(input1, "L")))
