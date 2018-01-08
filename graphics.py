@@ -1,3 +1,4 @@
+print("hello")
 def hangmanGraphics(guesses):
         if (guesses == 0):
             print ("________      ")
