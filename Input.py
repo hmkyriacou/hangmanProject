@@ -1,16 +1,34 @@
 def wordCheck(word):
   word = input("Enter your word: ")
+  word = str(word)
   word = word.upper()
   z = 1
+  let = " "
   
   length = len(word)
- 
+  for y in range(length):
+    let = word[y]
+    if (ord(let) < 65 or ord(let) > 90):
+      z = 0
+      
+  if (z == 0):
+    print("Please only enter letters")
+    wordCheck(word)
   if (length > 10 or length < 3):
     print("Please input a word with 3 to 10 letters.")
     wordCheck(word)
   else:
     return word
     
+def guessCheck(guess):
+  guess = input("Guess a letter: ")
+  if (len(guess) > 1):
+    print("Please only input one letter.")
+    guess = input("Guess a letter: ")
+    guessCheck(guess)
+  else:
+    return guess
+  
 begin = input("Would you like your word to be input or random? ")
 begin = begin.upper()
 word = " "
@@ -35,6 +53,9 @@ if (begin == "RANDOM"):
   word = word.replace("\n", "")
   infile1.close()
   word = word.upper()
-   
+  
 elif (begin == "INPUT"):
-  wordCheck(word)
+  word = wordCheck(word)
+  
+guess = " "
+guessCheck(guess)
