@@ -4,15 +4,8 @@ def wordCheck(word):
   z = 1
   
   length = len(word)
-  while (x <= length):
-    let = word.find(x)
-    if (ord(let) < 65 or ord(let) > 90):
-      z = 0
-      
-  if (z == 0):
-    print("Please only enter letters")
-    wordCheck(word)
-  elif (length > 10 or length < 3):
+ 
+  if (length > 10 or length < 3):
     print("Please input a word with 3 to 10 letters.")
     wordCheck(word)
   else:
