@@ -47,7 +47,7 @@ if (begin == "RANDOM"):
   #Gets a random word from Word.txt 
   import random
   wordn = random.randint(1, c)
-  infile1 = open("Word.txt", "r")
+  infile1 = open("randomList.txt", "r")
   for x in range(wordn):
     word = infile1.readline()
   word = word.replace("\n", "")
