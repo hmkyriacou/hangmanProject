@@ -36,7 +36,7 @@ word = " "
 
 if (begin == "RANDOM"):
   #Gets the number of words in Word.txt
-  infile = open("Word.txt", "r")
+  infile = open("randomList.txt", "r")
   c = 0
   line = infile.readline()
   while line:
