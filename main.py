@@ -183,7 +183,7 @@ prev = dashMaker(word, guess)
 print(prev)
 while (endGame == False):
     guess = " "
-    guessCheck(guess)
+    guess = guessCheck(guess)
     x = dashMaker(word, guess ,prev)
     
     if (prev == x):
@@ -196,5 +196,9 @@ while (endGame == False):
       print ("You win!")
     else:
       print (x)
+      prev = x
+      
 #### GRAPHICS ####
     hangmanGraphics(c)
+    if c == 10:
+      endGame = True
