@@ -32,6 +32,7 @@ def guessCheck(guess):
     guess = input("Guess a letter: ")
     guessCheck(guess)
   else:
+    guess = guess.upper
     return guess
 
 #### GUESS CHECKER #######################################################################
