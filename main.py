@@ -1,3 +1,5 @@
+global endGame
+import random
 #### INPUT #######################################################################
 
 def wordCheck(word):
@@ -35,7 +37,7 @@ def guessCheck(guess):
 #### GUESS CHECKER #######################################################################
 
 #Checks the string for the guess letter, changes output string
-def guessChecker(word,letter,previous="---------------"):
+def dashMaker(word,letter,previous="---------------"):
   blanks = ""
 
   c = 0
@@ -130,6 +132,7 @@ def hangmanGraphics(guesses):
             print ("|    _/ \_    ")
             print ("|             ")
             print ("Game Over")
+            endGame = True
             
             
 #### MAIN ####
@@ -150,7 +153,7 @@ word = " "
 
 if (begin == "RANDOM"):
   #Gets the number of words in Word.txt
-  infile = open("Word.txt", "r")
+  infile = open("randomList.txt", "r")
   c = 0
   line = infile.readline()
   while line:
@@ -159,9 +162,8 @@ if (begin == "RANDOM"):
   infile.close() 
 
   #Gets a random word from Word.txt 
-  import random
   wordn = random.randint(1, c)
-  infile1 = open("Word.txt", "r")
+  infile1 = open("randomList.txt", "r")
   for x in range(wordn):
     word = infile1.readline()
   word = word.replace("\n", "")
@@ -170,10 +172,28 @@ if (begin == "RANDOM"):
   
 elif (begin == "INPUT"):
   word = wordCheck(word)
-  
-guess = " "
-guessCheck(guess)
+
 
 #### GUESS CHECKER ####
-
-    #### GRAPHICS ####
+#input1 = "HELLO"
+c = 0
+endGame = False
+prev = dashMaker(word, guess)
+print(prev)
+while (endGame == False):
+    guess = " "
+    guessCheck(guess)
+    x = dashMaker(word, guess ,prev)
+    
+    if (prev == x):
+      c = c + 1
+      print (x)
+      prev = x
+      
+    elif (x == word):
+      endGame = True
+      print ("You win!")
+    else:
+      print (x)
+#### GRAPHICS ####
+    hangmanGraphics(c)
