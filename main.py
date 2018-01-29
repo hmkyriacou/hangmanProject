@@ -3,37 +3,42 @@ import random
 #### INPUT #######################################################################
 
 def wordCheck(word):
-  word = input("Enter your word: ")
-  word = str(word)
-  word = word.upper()
-  z = 1
-  let = " "
-  
-  length = len(word)
-  for y in range(length):
-    let = word[y]
-    if (ord(let) < 65 or ord(let) > 90):
-      z = 0
-      
-  if (z == 0):
-    print("Please only enter letters")
-    wordCheck(word)
-  if (length > 10 or length < 3):
-    print("Please input a word with 3 to 10 letters.")
-    wordCheck(word)
-  else:
-    return word
+  wordLoop = True
+  while wordLoop == True:
+    word = input("Enter your word: ")
+    word = str(word)
+    word = word.upper()
+    z = 1
+    let = " "
     
+    length = len(word)
+    for y in range(length):
+      let = word[y]
+      if (ord(let) < 65 or ord(let) > 90):
+        z = 0
+        
+    if (z == 0):
+      print("Please only enter letters")
+      
+    if (length > 10 or length < 3):
+      print("Please input a word with 3 to 10 letters.")
+      
+    else:
+      wordLoop = False
+      
+  return word
+      
 #Checks input 
 def guessCheck(guess):
-  guess = input("Guess a letter: ")
-  if (len(guess) > 1):
-    print("Please only input one letter.")
+  guessLoop = True
+  while guessLoop == True:
     guess = input("Guess a letter: ")
-    guessCheck(guess)
-  else:
-    guess = guess.upper
-    return guess
+    if (len(guess) > 1) or (False==guess.isalpha()):
+      print("Please only input one letter.")
+    else:
+      guess = guess.upper()
+      guessLoop = False
+  return guess
 
 #### GUESS CHECKER #######################################################################
 
@@ -147,32 +152,37 @@ print ("|             ")
 
     #### INPUT ####
   
-begin = input("Would you like your word to be input or random?")
-begin = begin.upper()
-word = " "
 
+randLoop = True
+while randLoop == True:
+  begin = input("Would you like your word to be input or random?")
+  begin = begin.upper()
+  word = " "
 
-if (begin == "RANDOM"):
-  #Gets the number of words in Word.txt
-  infile = open("randomList.txt", "r")
-  c = 0
-  line = infile.readline()
-  while line:
-    c += 1
+  if (begin == "RANDOM"):
+    #Gets the number of words in Word.txt
+    infile = open("randomList.txt", "r")
+    c = 0
     line = infile.readline()
-  infile.close() 
-
-  #Gets a random word from Word.txt 
-  wordn = random.randint(1, c)
-  infile1 = open("randomList.txt", "r")
-  for x in range(wordn):
-    word = infile1.readline()
-  word = word.replace("\n", "")
-  infile1.close()
-  word = word.upper()
+    while line:
+      c += 1
+      line = infile.readline()
+    infile.close() 
   
-elif (begin == "INPUT"):
-  word = wordCheck(word)
+    #Gets a random word from Word.txt 
+    wordn = random.randint(1, c)
+    infile1 = open("randomList.txt", "r")
+    for x in range(wordn):
+      word = infile1.readline()
+    word = word.replace("\n", "")
+    infile1.close()
+    word = word.upper()
+    randLoop = False
+    
+  elif (begin == "INPUT"):
+    word = wordCheck(word)
+    randLoop = False
+    
 
 
 #### GUESS CHECKER ####
@@ -203,3 +213,5 @@ while (endGame == False):
     hangmanGraphics(c)
     if c == 10:
       endGame = True
+      
+print("The word was: "+ word)
