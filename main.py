@@ -176,6 +176,7 @@ elif (begin == "INPUT"):
 
 #### GUESS CHECKER ####
 #input1 = "HELLO"
+guess = " "
 c = 0
 endGame = False
 prev = dashMaker(word, guess)
