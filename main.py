@@ -22,6 +22,7 @@ def wordCheck(word):
   else:
     return word
     
+#Checks input 
 def guessCheck(guess):
   guess = input("Guess a letter: ")
   if (len(guess) > 1):
@@ -33,6 +34,7 @@ def guessCheck(guess):
 
 #### GUESS CHECKER #######################################################################
 
+#Checks the string for the guess letter, changes output string
 def guessChecker(word,letter,previous="---------------"):
   blanks = ""
 
@@ -172,6 +174,6 @@ elif (begin == "INPUT"):
 guess = " "
 guessCheck(guess)
 
-    #### GUESS CHECKER ####
-  
+#### GUESS CHECKER ####
+
     #### GRAPHICS ####
