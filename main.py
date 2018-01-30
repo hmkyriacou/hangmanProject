@@ -142,7 +142,10 @@ def hangmanGraphics(guesses):
             
             
 #### MAIN ####
-
+print("Welcome to Hangman!")
+print("By Advanced Computer Science period 9")
+print("To play with a friend begin by entering 'input' followed by the word when prompted")
+print("To play singleplayer enter 'random' and begin playing!")
 print ("________      ")
 print ("|      |      ")
 print ("|             ")
@@ -186,7 +189,6 @@ while randLoop == True:
 
 
 #### GUESS CHECKER ####
-#input1 = "HELLO"
 guess = " "
 c = 0
 endGame = False
