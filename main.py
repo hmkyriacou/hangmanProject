@@ -20,7 +20,7 @@ def wordCheck(word):
     if (z == 0):
       print("Please only enter letters")
       
-    if (length > 10 or length < 3):
+    elif (length > 10 or length < 3):
       print("Please input a word with 3 to 10 letters.")
       
     else:
